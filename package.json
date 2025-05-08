@@ -1,0 +1,19 @@
+{
+    "name": "innerscope-template",
+    "module": "index.ts",
+    "type": "module",
+    "private": true,
+    "devDependencies": {
+        "@types/bun": "latest"
+    },
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "peerDependencies": {
+        "typescript": "^5"
+    },
+    "dependencies": {
+        "innerscope": "^0.1.90"
+    }
+}
