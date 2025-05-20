@@ -1,5 +1,5 @@
 import type { Parent } from "innerscope";
-import { Button } from "innerscope";
+import { Widget } from "innerscope";
 
 const tonal_color_object = {
     background: "#CDCBCB",
@@ -8,7 +8,7 @@ const tonal_color_object = {
 };
 
 export default function FilledButton(text: string, parent: Parent) {
-    const button = Button(text, parent);
+    const button = Widget.Button(text, parent);
     button.style.backgroundColor = tonal_color_object.background;
     button.style.color = "black";
     button.style.borderRadius = "4px";
@@ -25,6 +25,8 @@ export default function FilledButton(text: string, parent: Parent) {
     button.style.fontWeight = "400";
     button.style.fontSize = "1rem";
     button.style.fontFamily = "Unica One, sans-serif";
+
+    // Recommended You Use Css For Effects Like This
     button.onmouseenter = function () {
         button.style.backgroundColor = "#ffffff";
     };

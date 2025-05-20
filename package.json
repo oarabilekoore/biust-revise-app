@@ -14,6 +14,6 @@
         "typescript": "^5"
     },
     "dependencies": {
-        "innerscope": "^0.1.90"
+        "innerscope": "^0.2.0"
     }
 }

@@ -1,9 +1,9 @@
-import { LinearLayout } from "innerscope";
+import { Widget } from "innerscope";
 import { app } from "..";
 import FilledButton from "../components/button";
 
 export default function LandingPage() {
-    const page = LinearLayout(app.root);
+    const page = Widget.LinearLayout(app.root);
     page.ParentFill = "FILLXY";
     page.ScrollDirection = "VERTICAL";
     page.ElementAlignment = "CENTER";
