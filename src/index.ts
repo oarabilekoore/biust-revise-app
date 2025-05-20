@@ -1,6 +1,6 @@
 import { Application } from "innerscope";
-import LandingPage from "./pages/index.ts";
 import { page_routes } from "./routes.ts";
+import LandingPage from "./pages/index.ts";
 
 export const app = new Application({
     title: "Template App",
