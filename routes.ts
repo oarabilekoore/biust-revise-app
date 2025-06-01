@@ -1,5 +1,5 @@
 import type { PageRouterConfig } from "viewkit-ui";
-import LandingPage from "./src/pages/index.ts";
+import MainPage from "./src/pages/main.ts";
 import AboutPage from "./src/pages/about.ts";
 
 export const page_routes: PageRouterConfig = {
@@ -7,7 +7,7 @@ export const page_routes: PageRouterConfig = {
     routes: [
         {
             path: "/",
-            component: LandingPage,
+            component: MainPage,
         },
         {
             path: "/about",

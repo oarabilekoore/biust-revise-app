@@ -1,13 +1,15 @@
-import LandingPage from "./src/pages/index.ts";
+import { Application, Widget } from "viewkit-ui";
 import { page_routes } from "./routes.ts";
-import { Application } from "viewkit-ui";
+import { splash_icon } from "./public/constants.ts"
+
 
 export const app = new Application({
     title: "BIUSTREVISE App",
-    scrollbarvisibility: "hidden",
     statusbarcolor: "#252526",
     allowzoom: false,
     routes: page_routes,
+    scrollbarvisibility: "hidden",
+    icon: "./images/biustrevise.png",
 });
 
-app.onStart(LandingPage);
+app.openRoute("/")
