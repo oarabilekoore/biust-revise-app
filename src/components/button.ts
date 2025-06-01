@@ -1,5 +1,5 @@
-import type { Parent } from "innerscope";
-import { Widget } from "innerscope";
+import type { Parent } from "viewkit-ui";
+import { Widget } from "viewkit-ui";
 
 const tonal_color_object = {
     background: "#CDCBCB",

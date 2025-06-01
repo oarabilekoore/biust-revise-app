@@ -14,6 +14,8 @@
         "typescript": "^5"
     },
     "dependencies": {
-        "innerscope": "^0.2.0"
+        "@stitches/core": "^1.2.8",
+        "viewkit-ui": "^0.2.2",
+        "vite": "^6.3.5"
     }
 }

@@ -1,5 +1,5 @@
-import { Widget } from "innerscope";
-import { app } from "..";
+import { Widget } from "viewkit-ui";
+import { app } from "../..";
 import FilledButton from "../components/button";
 
 export default function LandingPage() {

@@ -1,5 +1,5 @@
-import { Widget } from "innerscope";
-import { app } from "../index.ts";
+import { Widget } from "viewkit-ui";
+import { app } from "../../index.ts";
 
 export default function AboutPage() {
     const page = Widget.LinearLayout(app.root);
