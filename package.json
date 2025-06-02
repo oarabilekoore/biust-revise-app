@@ -15,7 +15,7 @@
     },
     "dependencies": {
         "@stitches/core": "^1.2.8",
-        "viewkit-ui": "0.2.23",
+        "viewkit-ui": "0.2.24",
         "vite": "^6.3.5"
     }
 }

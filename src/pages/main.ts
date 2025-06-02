@@ -11,5 +11,10 @@ export default function MainPage() {
 
     SideBar(page);
 
-    Dashboard(page);
+    const page_handler = Widget.LinearLayout(app.root);
+    page.ParentFill = "FILLXY";
+    page.ScrollBarVisibility = "HIDDEN";
+    page.LayoutDirection = "LEFT_TO_RIGHT";
+    app.setRouteView(page_handler);
+    app.openRoute("/dashboard");
 }

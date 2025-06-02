@@ -5,7 +5,7 @@
       "name": "innerscope-template",
       "dependencies": {
         "@stitches/core": "^1.2.8",
-        "viewkit-ui": "0.2.23",
+        "viewkit-ui": "0.2.24",
         "vite": "^6.3.5",
       },
       "devDependencies": {
@@ -211,7 +211,7 @@
 
     "util-deprecate": ["util-deprecate@1.0.2", "", {}, "sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw=="],
 
-    "viewkit-ui": ["viewkit-ui@0.2.23", "", { "dependencies": { "copyfiles": "^2.4.1", "tsc": "^2.0.4", "vite": "^6.0.11" } }, "sha512-ucX3tRt/cCoxdnupfwBn9xPSVxfZeGMLXmIJc0Xmb53vJf76ZtiKSARCVm6TZT7v7D4t3TAg83Z3A/nojUHlAw=="],
+    "viewkit-ui": ["viewkit-ui@0.2.24", "", { "dependencies": { "copyfiles": "^2.4.1", "tsc": "^2.0.4", "vite": "^6.0.11" } }, "sha512-u4V6CVlDUy6Z6OeGCjjK2bU7sC3QGCG8cBMFXDltjGmDtTZANf7L9/a9kEDgGzD6NkGpKV5xXG3yEJsmiU3kmw=="],
 
     "vite": ["vite@6.3.5", "", { "dependencies": { "esbuild": "^0.25.0", "fdir": "^6.4.4", "picomatch": "^4.0.2", "postcss": "^8.5.3", "rollup": "^4.34.9", "tinyglobby": "^0.2.13" }, "optionalDependencies": { "fsevents": "~2.3.3" }, "peerDependencies": { "@types/node": "^18.0.0 || ^20.0.0 || >=22.0.0", "jiti": ">=1.21.0", "less": "*", "lightningcss": "^1.21.0", "sass": "*", "sass-embedded": "*", "stylus": "*", "sugarss": "*", "terser": "^5.16.0", "tsx": "^4.8.1", "yaml": "^2.4.2" }, "optionalPeers": ["@types/node", "jiti", "less", "lightningcss", "sass", "sass-embedded", "stylus", "sugarss", "terser", "tsx", "yaml"], "bin": { "vite": "bin/vite.js" } }, "sha512-cZn6NDFE7wdTpINgs++ZJ4N49W2vRp8LCKrn3Ob1kYNtOo21vfDoaV5GzBfLU4MovSAB8uNRm4jgzVQZ+mBzPQ=="],
 

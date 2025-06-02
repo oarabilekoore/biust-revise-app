@@ -6,7 +6,7 @@ import { LinkButton } from "../components/button";
 
 export default function Dashboard(page: Parent) {
     const dashboard_page = new LayoutConstructor(page, "linear");
-    dashboard_page.ParentFill = "FILLXY";
+    dashboard_page.ParentFill = "INHERIT";
     dashboard_page.ScrollDirection = "VERTICAL";
     dashboard_page.ElementAlignment = "CENTER";
     dashboard_page.ScrollBarVisibility = "HIDDEN";
@@ -58,4 +58,5 @@ export default function Dashboard(page: Parent) {
         href: "",
         icon: "transcribe",
     });
+    return dashboard_page.DomElement;
 }
