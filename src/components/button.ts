@@ -1,2 +1,52 @@
 import type { Parent } from "viewkit-ui";
 import { Widget } from "viewkit-ui";
+import { css } from "@stitches/core";
+import { gen_def, stl_def } from "./+definition";
+
+type ButtonProps = {
+    label: string;
+    icon?: string;
+    href?: string;
+};
+
+export function LinkButton(parent: Parent, props: ButtonProps) {
+    const { label, icon, href } = props;
+    const button = Widget.Anchor(parent, label);
+    button.setAttribute("href", href);
+    if (icon) {
+        add_icon_to_button();
+    }
+
+    const button_style = css({
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: gen_def.general.space[1],
+        backgroundColor: stl_def.schemes["dark-medium-contrast"].secondary,
+        color: stl_def.schemes["light-high-contrast"].secondary,
+        fontFamily: `"Lexend", sans-serif`,
+        fontWeight: 400,
+        textAlign: "center",
+        borderRadius: "4px",
+        cursor: "pointer",
+        padding: gen_def.general.space[2],
+        margin: "auto",
+        height: "auto",
+        boxShadow: "none",
+        boxSizing: "border-box",
+        textDecoration: "none",
+        "&:hover": {
+            opacity: 0.8,
+        },
+    });
+    button.classList.add(button_style());
+
+    function add_icon_to_button() {
+        //@ts-ignore
+        const iconElement = Widget.Span(button, icon);
+        iconElement.classList.add("material-symbols-outlined");
+        button.prepend(iconElement);
+    }
+
+    return button;
+}

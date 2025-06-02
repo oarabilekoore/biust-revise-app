@@ -1,7 +1,7 @@
-import { LayoutConstructor, Widget } from "viewkit-ui";
+import { Widget } from "viewkit-ui";
 import { app } from "../..";
-import { stl_def } from "../components/+definition";
 import { SideBar } from "../components/sidebar";
+import Dashboard from "./dashboard";
 
 export default function MainPage() {
     const page = Widget.LinearLayout(app.root);
@@ -11,11 +11,5 @@ export default function MainPage() {
 
     SideBar(page);
 
-    const content_page = new LayoutConstructor(page, "linear");
-    content_page.ParentFill = "FILLXY";
-    content_page.ScrollDirection = "VERTICAL";
-    content_page.ElementAlignment = "LEFT";
-    content_page.ScrollBarVisibility = "HIDDEN";
-    content_page.LayoutDirection = "LEFT_TO_RIGHT";
-    content_page.DomElement.style.backgroundColor = stl_def.schemes["light-high-contrast"].background;
+    Dashboard(page);
 }

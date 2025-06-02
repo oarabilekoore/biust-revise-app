@@ -2,6 +2,7 @@ import { LayoutConstructor, Widget } from "viewkit-ui";
 import type { Parent } from "viewkit-ui";
 import { stl_def, gen_def } from "./+definition";
 import { css } from "@stitches/core";
+import { app } from "../..";
 
 const side_bar_style = css({
     backgroundColor: stl_def.schemes.light.secondaryContainer,
@@ -61,14 +62,14 @@ const side_bar_hint_style = css({
     overflow: "hidden",
     textOverflow: "ellipsis",
     whiteSpace: "nowrap",
-    display: "none" /* Hide hint by default */,
+    display: "none",
 });
 
 const tooltip_style = css({
     fontFamily: `"Lexend", sans-serif`,
     fontWeight: 400,
     position: "absolute",
-    left: "calc(100% + 10px)" /* Position to the right of the sidebar */,
+    left: "calc(100% + 10px)",
     top: "50%",
     transform: "translateY(-50%)",
     backgroundColor: stl_def.schemes["light-high-contrast"].onSurface,
@@ -122,10 +123,18 @@ export function SideBar(parent: Parent) {
     topSection.ElementAlignment = "CENTER";
 
     // Main navigation
-    SideBarIcon(topSection, "dashboard", "Dashboard");
-    SideBarIcon(topSection, "amp_stories", "Classes");
-    SideBarIcon(topSection, "calendar_month", "Schedule");
-    SideBarIcon(topSection, "archive", "Document Library");
+    SideBarIcon(topSection, "dashboard", "Dashboard", () => {
+        app.openRoute("/");
+    });
+    SideBarIcon(topSection, "amp_stories", "Classes", () => {
+        app.openRoute("/classes");
+    });
+    SideBarIcon(topSection, "calendar_month", "Schedule", () => {
+        app.openRoute("/calendar");
+    });
+    SideBarIcon(topSection, "archive", "Document Library", () => {
+        app.openRoute("/library");
+    });
 
     // --- Bottom Section ---
     const bottomSection = new LayoutConstructor(side_bar, "linear");

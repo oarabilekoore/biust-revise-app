@@ -1,6 +1,7 @@
 import type { PageRouterConfig } from "viewkit-ui";
 import MainPage from "./src/pages/main.ts";
 import AboutPage from "./src/pages/about.ts";
+import LibraryPage from "./src/pages/library.ts";
 
 export const page_routes: PageRouterConfig = {
     mode: "history",
@@ -12,6 +13,10 @@ export const page_routes: PageRouterConfig = {
         {
             path: "/about",
             component: AboutPage,
+        },
+        {
+            path: "/library",
+            component: LibraryPage,
         },
     ],
 };
