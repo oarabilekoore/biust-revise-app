@@ -1,46 +1,20 @@
 import { LayoutConstructor, Widget } from "viewkit-ui";
 import type { Parent } from "viewkit-ui";
+import { stl_def, gen_def } from "./+definition";
 import { css } from "@stitches/core";
 
-// --- STYLING ---
-
-const stl_def = {
-    light_theme: {
-        default: "#FFFFFF",
-        primary: "#E0E0E0",
-        secondary: "#BDBDBD",
-        surface: "#F5F5F5",
-        primary_subtle: "#E8EAF6",
-        text_primary: "#212121",
-        text_secondary: "#757575",
-        on_primary: "#FFFFFF",
-        accent_color: "#3F51B5",
-    },
-    general: {
-        space: [0, "4px", "8px", "12px", "16px", "20px"],
-    },
-};
-
-// Base sidebar styling
 const side_bar_style = css({
-    backgroundColor: stl_def.light_theme.surface,
-    padding: stl_def.general.space[3],
-    rowGap: stl_def.general.space[2],
+    backgroundColor: stl_def.schemes.light.secondaryContainer,
+    padding: gen_def.general.space[3],
+    rowGap: gen_def.general.space[2],
     zIndex: 2000,
     height: "100%",
-    boxShadow: "3px 0 15px rgba(0,0,0,0.07)",
-    borderRadius: "0px 12px 12px 0px",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
     transition: "width 0.3s ease-in-out",
 });
 
-const expanded_class = css({
-    width: "220px",
-});
-
-// Sidebar item style
 const side_bar_item_style = css({
     display: "flex",
     flexDirection: "column",
@@ -48,27 +22,25 @@ const side_bar_item_style = css({
     justifyContent: "center",
     width: "calc(100% - 4px)",
     minHeight: "64px",
-    padding: `${stl_def.general.space[2]} ${stl_def.general.space[1]}`,
+    padding: `${gen_def.general.space[2]} ${gen_def.general.space[1]}`,
     borderRadius: "10px",
     cursor: "pointer",
     transition: "color 0.2s ease",
-    color: stl_def.light_theme.text_secondary,
+    color: stl_def.schemes["light-medium-contrast"].secondary,
 
     "&:hover": {
-        color: stl_def.light_theme.accent_color,
+        color: stl_def.schemes["light-high-contrast"].onSurface,
     },
 
     "&:focus-visible": {
-        outline: `2px solid ${stl_def.light_theme.accent_color}`,
+        outline: `2px solid ${stl_def.schemes["light-medium-contrast"].onSurface}`,
         outlineOffset: "2px",
     },
 });
 
-// b
-
 const icon_element_style = css({
     fontSize: "28px",
-    marginBottom: stl_def.general.space[1],
+    marginBottom: gen_def.general.space[1],
     transition: "transform 0.2s ease",
 
     [`${side_bar_item_style.selector}:hover &`]: {
@@ -77,9 +49,12 @@ const icon_element_style = css({
 });
 
 const side_bar_hint_style = css({
+    fontFamily: `"Lexend", sans-serif`,
+    fontOpticalSizing: "auto",
+    fontWeight: 400,
+    fontStyle: "normal",
     fontSize: "11px",
     textAlign: "center",
-    fontWeight: "500",
     lineHeight: "1.3",
     maxWidth: "100%",
     overflow: "hidden",
@@ -87,7 +62,10 @@ const side_bar_hint_style = css({
     whiteSpace: "nowrap",
 });
 
-// Dynamic width styles
+const expanded_class = css({
+    width: "420px",
+});
+
 const collapsed_class = css({
     width: "64px",
     overflow: "hidden",
@@ -101,8 +79,8 @@ const collapsed_class = css({
 
 function SideBarIcon(parent: Parent, icon: string, hint: string, onClick?: () => void) {
     const item = new LayoutConstructor(parent, "linear", [side_bar_item_style()]);
-    item.ElementAlignment = "CENTER";
-    item.LayoutDirection = "TOP_TO_BOTTOM";
+    item.ElementAlignment = "VCENTER";
+    item.LayoutDirection = "LEFT_TO_RIGHT";
 
     const icon_view = Widget.Span(item);
     icon_view.textContent = icon;
@@ -117,8 +95,6 @@ function SideBarIcon(parent: Parent, icon: string, hint: string, onClick?: () =>
     }
 }
 
-// --- SIDEBAR FUNCTION ---
-
 export function SideBar(parent: Parent) {
     const side_bar = new LayoutConstructor(parent, "linear", [
         side_bar_style(),
@@ -129,6 +105,8 @@ export function SideBar(parent: Parent) {
     side_bar.ElementAlignment = "VCENTER";
     side_bar.DomElement.style.mainAxisAlignment = "SPACE_BETWEEN";
     side_bar.ParentFill = "FILLY";
+    side_bar.DomElement.tabIndex = "0"; // This allows our sidebar to be focusable,
+    // remember divs and sections by default arent focusable
 
     let isExpanded = false;
 
@@ -152,6 +130,15 @@ export function SideBar(parent: Parent) {
         }
     });
 
+    // Also handle the case when the sidebar looses focus;
+    side_bar.DomElement.addEventListener("focusout", (event: Event) => {
+        //@ts-ignore
+        requestAnimationFrame(() => {
+            side_bar.DomElement.classList.remove(expanded_class());
+            side_bar.DomElement.classList.add(collapsed_class());
+        });
+    });
+
     // Main navigation
     SideBarIcon(topSection, "dashboard", "Dashboard");
     SideBarIcon(topSection, "amp_stories", "Classes");
@@ -161,16 +148,6 @@ export function SideBar(parent: Parent) {
     const bottomSection = new LayoutConstructor(side_bar, "linear");
     bottomSection.LayoutDirection = "TOP_TO_BOTTOM";
     bottomSection.ElementAlignment = "CENTER";
-
-    // Recents label (only shown when expanded)
-    const recentsLabel = Widget.Span(bottomSection);
-    recentsLabel.textContent = "Recents";
-    recentsLabel.style.fontSize = "10px";
-    recentsLabel.style.color = stl_def.light_theme.text_secondary;
-    recentsLabel.style.fontWeight = "600";
-    recentsLabel.style.marginTop = "8px";
-    recentsLabel.style.textTransform = "uppercase";
-    recentsLabel.classList.add(side_bar_hint_style());
 
     // Settings button always last
     const settingsSpacer = Widget.Div(bottomSection);

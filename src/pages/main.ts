@@ -17,5 +17,5 @@ export default function MainPage() {
     content_page.ElementAlignment = "LEFT";
     content_page.ScrollBarVisibility = "HIDDEN";
     content_page.LayoutDirection = "LEFT_TO_RIGHT";
-    content_page.DomElement.style.backgroundColor = stl_def.light_theme.default;
+    content_page.DomElement.style.backgroundColor = stl_def.schemes["light-high-contrast"].background;
 }
