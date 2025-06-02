@@ -58,5 +58,7 @@ export default function Dashboard(page: Parent) {
         href: "",
         icon: "transcribe",
     });
+
+    // Dont Edit That, Its For Use With The RouteView
     return dashboard_page.DomElement;
 }

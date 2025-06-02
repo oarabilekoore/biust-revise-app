@@ -5,5 +5,7 @@ export default function AboutPage() {
     const page = Widget.LinearLayout(app.root);
     page.ElementAlignment = "CENTER";
     page.ParentFill = "FILLXY";
-    Widget.Paragraph(`You Are On The Get Started Page`, page);
+    Widget.Paragraph(`You Are On The About Page`, page);
+
+    return page.DomElement;
 }

@@ -1,27 +1,32 @@
 import type { PageRouterConfig } from "viewkit-ui";
-import MainPage from "./src/pages/main.ts";
 import AboutPage from "./src/pages/about.ts";
-import LibraryPage from "./src/pages/library.ts";
+import LibraryPage from "./src/pages/documents.ts";
 import Dashboard from "./src/pages/dashboard.ts";
+import ClassesPage from "./src/pages/classes.ts";
+import CalendarPage from "./src/pages/calendar.ts";
 
 export const page_routes: PageRouterConfig = {
     mode: "history",
     routes: [
         {
             path: "/",
-            component: MainPage,
+            component: Dashboard,
         },
         {
             path: "/about",
             component: AboutPage,
         },
         {
-            path: "/dashboard",
-            component: Dashboard,
-        },
-        {
             path: "/library",
             component: LibraryPage,
+        },
+        {
+            path: "/classes",
+            component: ClassesPage,
+        },
+        {
+            path: "/calendar",
+            component: CalendarPage,
         },
     ],
 };
