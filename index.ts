@@ -1,4 +1,4 @@
-import { Application, Widget } from "viewkit-ui";
+import { Widget } from "viewkit-ui";
 import { page_routes } from "./routes.ts";
 import { SideBar } from "./src/components/sidebar.ts";
 import { Router } from "viewkit-micromanager/package/router.ts";
