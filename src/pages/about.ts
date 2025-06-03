@@ -1,8 +1,7 @@
 import { Widget } from "viewkit-ui";
-import { app } from "../../index.ts";
-
-export default function AboutPage() {
-    const page = Widget.LinearLayout(app.root);
+import type { Parent } from "viewkit-ui";
+export default function AboutPage(parent: Parent) {
+    const page = Widget.LinearLayout(parent);
     page.ElementAlignment = "CENTER";
     page.ParentFill = "FILLXY";
     Widget.Paragraph(`You Are On The About Page`, page);

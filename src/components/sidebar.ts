@@ -2,7 +2,7 @@ import { LayoutConstructor, Widget } from "viewkit-ui";
 import type { Parent } from "viewkit-ui";
 import { stl_def, gen_def } from "./+definition";
 import { css } from "@stitches/core";
-import { app } from "../..";
+import { router } from "../..";
 
 const side_bar_style = css({
     backgroundColor: stl_def.schemes.light.secondaryContainer,
@@ -124,16 +124,16 @@ export function SideBar(parent: Parent) {
 
     // Main navigation
     SideBarIcon(topSection, "dashboard", "Dashboard", () => {
-        app.openRoute("/");
+        router.openRoute("/");
     });
     SideBarIcon(topSection, "amp_stories", "Classes", () => {
-        app.openRoute("/classes");
+        router.openRoute("/classes");
     });
     SideBarIcon(topSection, "calendar_month", "Schedule", () => {
-        app.openRoute("/calendar");
+        router.openRoute("/calendar");
     });
     SideBarIcon(topSection, "archive", "Document Library", () => {
-        app.openRoute("/library");
+        router.openRoute("/library");
     });
 
     // --- Bottom Section ---
