@@ -1,21 +1,23 @@
-import { Widget } from "viewkit-ui";
+import { widget } from "viewkit-ui";
 import { page_routes } from "./routes.ts";
 import { SideBar } from "./src/components/sidebar.ts";
 import { Router } from "viewkit-micromanager/package/router.ts";
+import Dashboard from "./src/pages/dashboard.ts";
 
 //@ts-ignore
 const root = document.querySelector("body");
 
-const page = Widget.LinearLayout(root);
+const page = widget.LinearLayout(root);
 page.ParentFill = "FILLXY";
 page.ScrollBarVisibility = "HIDDEN";
 page.LayoutDirection = "LEFT_TO_RIGHT";
 
 SideBar(page);
 
-const page_handler = Widget.LinearLayout(page);
+const page_handler = widget.LinearLayout(page);
 page_handler.ParentFill = "FILLXY";
 page_handler.ElementAlignment = "CENTER";
 page_handler.LayoutDirection = "TOP_TO_BOTTOM";
 
-export const router = new Router(page_routes, page_handler.DomElement);
+Dashboard(page_handler);
+//export const router = new Router(page_routes, page_handler.DomElement);

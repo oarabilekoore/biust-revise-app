@@ -1,7 +1,6 @@
-import { Widget, LayoutConstructor } from "viewkit-ui";
+import { widget, css, LayoutConstructor } from "viewkit-ui";
 import type { Parent } from "viewkit-ui";
 import { stl_def, gen_def } from "../components/+definition";
-import { css } from "@stitches/core";
 import { LinkButton } from "../components/button";
 
 export default function Dashboard(page: Parent) {
@@ -13,24 +12,30 @@ export default function Dashboard(page: Parent) {
     dashboard_page.LayoutDirection = "TOP_TO_BOTTOM";
     dashboard_page.DomElement.style.backgroundColor = stl_def.schemes["light-high-contrast"].background;
 
-    const heading_style = css({
-        fontFamily: `"WDXL Lubrifont TC", sans-serif`,
-        fontSize: "2.8rem",
-        color: stl_def.schemes["light-high-contrast"].secondary,
-        textAlign: "center",
-    });
+    css(
+        {
+            fontFamily: `"WDXL Lubrifont TC", sans-serif`,
+            fontSize: "2.8rem",
+            color: stl_def.schemes["light-high-contrast"].secondary,
+            textAlign: "center",
+        },
+        "heading_style"
+    );
 
-    const heading_text = Widget.Heading1(dashboard_page, "Hello Welcome To The BIUSTREVISE App");
-    heading_text.classList.add(heading_style());
+    const heading_text = widget.Heading1(dashboard_page, "Hello Welcome To The BIUSTREVISE App");
+    heading_text.classList.add("heading_style");
 
-    const heading_star_style = css({
-        fontSize: "5.6rem",
-    });
+    css(
+        {
+            fontSize: "5.6rem",
+        },
+        "heading_star_style"
+    );
 
-    const heading_star = Widget.Span(heading_text, " ⚝ ");
-    heading_star.classList.add(heading_style(), heading_star_style());
+    const heading_star = widget.Span(heading_text, " ⚝ ");
+    heading_star.classList.add("heading_style", "heading_star_style");
 
-    const button_row = Widget.LinearLayout(dashboard_page);
+    const button_row = widget.LinearLayout(dashboard_page);
     button_row.ElementAlignment = "CENTER";
     button_row.LayoutDirection = "LEFT_TO_RIGHT";
     button_row.DomElement.style.gap = gen_def.general.space[3];
