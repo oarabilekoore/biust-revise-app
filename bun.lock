@@ -6,7 +6,7 @@
       "dependencies": {
         "@stitches/core": "^1.2.8",
         "viewkit-micromanager": "^0.0.1",
-        "viewkit-ui": "0.3.3",
+        "viewkit-ui": "0.3.4",
         "vite": "^6.3.5",
       },
       "devDependencies": {
@@ -214,7 +214,7 @@
 
     "viewkit-micromanager": ["viewkit-micromanager@0.0.1", "", { "dependencies": { "viewkit-ui": "^0.2.25", "vite": "^6.3.5" } }, "sha512-SHwRxNrtyv42yZT/+UZ+PdHnzFjLnejrSMbC85td8XBc8aJl+yNS6clyxs4kTzT3SHHxFPBTNgJsBjTMvMIk5Q=="],
 
-    "viewkit-ui": ["viewkit-ui@0.3.3", "", { "dependencies": { "copyfiles": "^2.4.1", "tsc": "^2.0.4", "vite": "^6.0.11" } }, "sha512-Dk47aoIKgOlNblx9+7TMA9CZWZYt+ZlGH48wYTHg8bZbxBzrrPjIMwEIBv9W6yH3vbZlorzKNtAHOgsZtj3wpQ=="],
+    "viewkit-ui": ["viewkit-ui@0.3.4", "", { "dependencies": { "copyfiles": "^2.4.1", "tsc": "^2.0.4", "vite": "^6.0.11" } }, "sha512-j0FFw6Y00duaqGnZbrlEVhMlx7RCJjSAHJB8H9sVs6pQMDTzottMHEHfCiKxR5npbS4SRTeF0Cz6uuD4yM7pwA=="],
 
     "vite": ["vite@6.3.5", "", { "dependencies": { "esbuild": "^0.25.0", "fdir": "^6.4.4", "picomatch": "^4.0.2", "postcss": "^8.5.3", "rollup": "^4.34.9", "tinyglobby": "^0.2.13" }, "optionalDependencies": { "fsevents": "~2.3.3" }, "peerDependencies": { "@types/node": "^18.0.0 || ^20.0.0 || >=22.0.0", "jiti": ">=1.21.0", "less": "*", "lightningcss": "^1.21.0", "sass": "*", "sass-embedded": "*", "stylus": "*", "sugarss": "*", "terser": "^5.16.0", "tsx": "^4.8.1", "yaml": "^2.4.2" }, "optionalPeers": ["@types/node", "jiti", "less", "lightningcss", "sass", "sass-embedded", "stylus", "sugarss", "terser", "tsx", "yaml"], "bin": { "vite": "bin/vite.js" } }, "sha512-cZn6NDFE7wdTpINgs++ZJ4N49W2vRp8LCKrn3Ob1kYNtOo21vfDoaV5GzBfLU4MovSAB8uNRm4jgzVQZ+mBzPQ=="],
 

@@ -1,9 +1,7 @@
 import { widget } from "viewkit-ui";
 import { page_routes } from "./routes.ts";
 import { SideBar } from "./src/components/sidebar.ts";
-import { Router } from "viewkit-micromanager/package/router.ts";
-import Dashboard from "./src/pages/dashboard.ts";
-
+import { Router } from "./src/router.ts";
 //@ts-ignore
 const root = document.querySelector("body");
 
@@ -19,5 +17,5 @@ page_handler.ParentFill = "FILLXY";
 page_handler.ElementAlignment = "CENTER";
 page_handler.LayoutDirection = "TOP_TO_BOTTOM";
 
-Dashboard(page_handler);
-//export const router = new Router(page_routes, page_handler.DomElement);
+export const router = new Router(page_routes, page_handler.DomElement);
+router.openRoute("/");

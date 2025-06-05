@@ -2,7 +2,7 @@ import { widget } from "viewkit-ui";
 import type { Parent } from "viewkit-ui";
 
 export default function ClassesPage(parent: Parent) {
-    const classes_page = widget.LinearLayout(parent);
+    const classes_page = widget.LinearLayout();
     classes_page.ParentFill = "INHERIT";
     classes_page.ElementAlignment = "CENTER";
 

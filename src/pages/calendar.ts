@@ -2,7 +2,7 @@ import { widget } from "viewkit-ui";
 import type { Parent } from "viewkit-ui";
 
 export default function CalendarPage(parent: Parent) {
-    const calendar_page = widget.LinearLayout(parent);
+    const calendar_page = widget.LinearLayout();
     calendar_page.ParentFill = "INHERIT";
     calendar_page.ElementAlignment = "CENTER";
 
