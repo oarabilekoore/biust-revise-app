@@ -2,6 +2,7 @@ import { widget, css, LayoutConstructor } from "viewkit-ui";
 import type { Parent } from "viewkit-ui";
 import { stl_def, gen_def } from "../components/+definition";
 import { LinkButton } from "../components/button";
+import { ChatBox } from "../components/chatbox";
 
 export default function Dashboard(page: Parent) {
     const dashboard_page = new LayoutConstructor(null, "linear");
@@ -11,7 +12,6 @@ export default function Dashboard(page: Parent) {
     dashboard_page.ScrollBarVisibility = "HIDDEN";
     dashboard_page.LayoutDirection = "TOP_TO_BOTTOM";
     dashboard_page.DomElement.style.backgroundColor = stl_def.schemes["light-high-contrast"].background;
-
     const heading_style = css({
         fontFamily: `"WDXL Lubrifont TC", sans-serif`,
         fontSize: "2.8rem",
@@ -58,6 +58,8 @@ export default function Dashboard(page: Parent) {
         href: "",
         icon: "transcribe",
     });
+
+    ChatBox(dashboard_page);
 
     // Dont Edit That, Its For Use With The RouteView
     return dashboard_page.DomElement;

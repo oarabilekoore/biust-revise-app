@@ -1,4 +1,4 @@
-import { widget } from "viewkit-ui";
+import { widget, css } from "viewkit-ui";
 import type { Parent } from "viewkit-ui";
 
 export default function LibraryPage(parent: Parent) {
@@ -6,6 +6,5 @@ export default function LibraryPage(parent: Parent) {
     library_page.ParentFill = "INHERIT";
     library_page.ElementAlignment = "CENTER";
 
-    widget.Heading1(library_page, "Documents Page");
     return library_page.DomElement;
 }
