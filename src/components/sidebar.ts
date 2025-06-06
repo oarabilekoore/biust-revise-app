@@ -2,6 +2,7 @@ import { LayoutConstructor, widget, css } from "viewkit-ui";
 import type { Parent } from "viewkit-ui";
 import { stl_def, gen_def } from "./+definition";
 import { router } from "../..";
+
 const side_bar_style = css({
     backgroundColor: stl_def.schemes.light.secondaryContainer,
     padding: gen_def.general.space[3],
@@ -49,11 +50,11 @@ const side_bar_item_style = css({
     justifyContent: "center",
     width: "calc(100% - 4px)",
     minHeight: "64px",
-    //padding: `${gen_def.general.space[3]} ${gen_def.general.space[1]}`,
+    padding: `${gen_def.general.space[3]} ${gen_def.general.space[1]}`,
     borderRadius: "10px",
     cursor: "pointer",
     transition: "color 0.2s ease",
-    // /color: stl_def.schemes["light-medium-contrast"].secondary,
+    color: stl_def.schemes["light-medium-contrast"].secondary,
     position: "relative",
 
     "&:hover": {
@@ -114,16 +115,16 @@ export function SideBar(parent: Parent | null) {
 
     // Main navigation
     SideBarIcon(topSection, "dashboard", "Dashboard", () => {
-        router.openRoute("/");
+        router.open("/");
     });
     SideBarIcon(topSection, "amp_stories", "Classes", () => {
-        router.openRoute("/classes");
+        router.open("/classes");
     });
     SideBarIcon(topSection, "calendar_month", "Schedule", () => {
-        router.openRoute("/calendar");
+        router.open("/calendar");
     });
     SideBarIcon(topSection, "archive", "Document Library", () => {
-        router.openRoute("/library");
+        router.open("/library");
     });
 
     // --- Bottom Section ---

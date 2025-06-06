@@ -14,9 +14,7 @@
         "typescript": "^5"
     },
     "dependencies": {
-        "@stitches/core": "^1.2.8",
-        "viewkit-micromanager": "^0.0.1",
-        "viewkit-ui": "0.3.4",
+        "viewkit-ui": "0.3.6",
         "vite": "^6.3.5"
     }
 }
