@@ -79,5 +79,35 @@ export default function LibraryPage(parent: Parent) {
         href: "",
     });
 
+    SubjectLinkButton(courses_grid, {
+        label: "CETG122",
+        icon: "tools",
+        href: "",
+    });
+
+    SubjectLinkButton(courses_grid, {
+        label: "CETG121",
+        icon: "tools",
+        href: "",
+    });
+
+    SubjectLinkButton(courses_grid, {
+        label: "MATH102",
+        icon: "calculator-simple",
+        href: "",
+    });
+
+    SubjectLinkButton(courses_grid, {
+        label: "MATH201",
+        icon: "calculator-simple",
+        href: "",
+    });
+
+    SubjectLinkButton(courses_grid, {
+        label: "MATH202",
+        icon: "calculator-simple",
+        href: "",
+    });
+
     return library_page.DomElement;
 }

@@ -12,18 +12,29 @@ export default function Dashboard(page: Parent) {
     dashboard_page.ElementAlignment = "CENTER";
     dashboard_page.ScrollBarVisibility = "HIDDEN";
     dashboard_page.LayoutDirection = "TOP_TO_BOTTOM";
+    dashboard_page.DomElement.style.padding = `${gen_def.general.space[4]}`;
     dashboard_page.DomElement.style.gap = `${gen_def.general.space[4]}`;
-    dashboard_page.DomElement.style.backgroundColor = stl_def.schemes["light-high-contrast"].background;
+    //dashboard_page.DomElement.style.backgroundColor = stl_def.schemes["light-high-contrast"].background;
 
     HeaderMemo(dashboard_page, {
         title: "Hello Welcome To The BIUSTREVISE App",
         icon: "⚝",
     });
 
-    const button_row = widget.LinearLayout(dashboard_page);
-    button_row.ElementAlignment = "CENTER";
-    button_row.LayoutDirection = "LEFT_TO_RIGHT";
+    const bottom_area = widget.LinearLayout(dashboard_page);
+    bottom_area.DomElement.style.width = "100%"; // Changed from calc(100% - 20%)
+    bottom_area.DomElement.style.flexGrow = "0.95";
+    bottom_area.DomElement.style.display = "flex";
+    bottom_area.DomElement.style.flexDirection = "column";
+    bottom_area.DomElement.style.justifyContent = "flex-end";
+    bottom_area.DomElement.style.alignItems = "center"; // Center everything in bottom_area
+
+    ChatBox(bottom_area);
+
+    const button_row = widget.LinearLayout(bottom_area);
+    button_row.DomElement.style.display = "flex";
     button_row.DomElement.style.gap = `${gen_def.general.space[3]}`;
+    button_row.DomElement.style.padding = `${gen_def.general.space[3]}`;
 
     LinkButton(button_row, {
         label: "Summarize School Notes",
@@ -48,8 +59,6 @@ export default function Dashboard(page: Parent) {
         href: "",
         icon: "transcribe",
     });
-
-    ChatBox(dashboard_page);
 
     // Dont Edit That, Its For Use With The RouteView
     return dashboard_page.DomElement;

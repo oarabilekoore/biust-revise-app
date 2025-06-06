@@ -8,7 +8,7 @@ export type HeaderProps = {
 export function HeaderMemo(root: Parent, headerprops: HeaderProps) {
     const { title, icon } = headerprops;
     const heading_style = css({
-        fontFamily: `"WDXL Lubrifont TC", sans-serif`,
+        fontFamily: `Lexend, sans-serif`,
         fontSize: "2.8rem",
         color: stl_def.schemes["light-high-contrast"].secondary,
         textAlign: "center",

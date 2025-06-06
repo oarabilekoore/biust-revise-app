@@ -8,8 +8,6 @@ export function ChatBox(root: Parent) {
     chat_area.LayoutDirection = "LEFT_TO_RIGHT";
 
     const chat_area_style = css({
-        backgroundColor: stl_def.schemes.light.surface,
-        padding: gen_def.general.space[4],
         width: "calc(100% - 40%)",
         height: "auto",
         margin: "0 auto",
