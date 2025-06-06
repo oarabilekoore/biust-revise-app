@@ -8,7 +8,8 @@ Anyway, I've always wanted to create my own custom AI app that fits into my work
 
 > Here is an upto-date snapshot of the website;
 
-![](./Screenshot%20From%202025-06-06%2016-12-06.png)
+![](./Screenshot%20From%202025-06-06%2021-24-16.png)
+![](./Screenshot%20From%202025-06-06%2021-25-08.png)
 
 ---
 

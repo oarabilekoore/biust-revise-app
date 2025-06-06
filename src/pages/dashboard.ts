@@ -22,13 +22,12 @@ export default function Dashboard(page: Parent) {
     });
 
     const bottom_area = widget.LinearLayout(dashboard_page);
-    bottom_area.DomElement.style.width = "100%"; // Changed from calc(100% - 20%)
+    bottom_area.DomElement.style.width = "100%";
     bottom_area.DomElement.style.flexGrow = "0.95";
     bottom_area.DomElement.style.display = "flex";
     bottom_area.DomElement.style.flexDirection = "column";
     bottom_area.DomElement.style.justifyContent = "flex-end";
-    bottom_area.DomElement.style.alignItems = "center"; // Center everything in bottom_area
-
+    bottom_area.DomElement.style.alignItems = "center";
     ChatBox(bottom_area);
 
     const button_row = widget.LinearLayout(bottom_area);
