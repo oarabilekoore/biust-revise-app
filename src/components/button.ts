@@ -50,3 +50,41 @@ export function LinkButton(parent: Parent, props: ButtonProps) {
 
     return button;
 }
+
+type SubjectLinkProps = {
+    label: string;
+    icon: string;
+    href: string;
+};
+
+export function SubjectLinkButton(root: Parent, props: SubjectLinkProps) {
+    const { label, icon, href } = props;
+    const button = widget.LinearLayout(root);
+    button.ElementAlignment = "VCENTER";
+    button.LayoutDirection = "LEFT_TO_RIGHT";
+
+    const icon_ = widget.Span(button);
+    icon_.classList.add("fi", `fi-rr-${icon}`);
+
+    const label_ = widget.Anchor(button);
+    label_.textContent = label.toUpperCase();
+
+    const button_css = css({
+        backdropFilter: "blur(8px)",
+        fontFamily: `"Lexend", sans-serif`,
+        fontWeight: 400,
+        textAlign: "center",
+        alignItems: "space-between",
+        border: `1px solid ${stl_def.schemes.light.outlineVariant}`,
+        borderRadius: `${gen_def.radius.sm}`,
+        boxShadow: "none",
+        padding: `${gen_def.general.space[4]}`,
+        gap: `${gen_def.general.space[4]}`,
+        cursor: "pointer",
+        "&:hover": {
+            border: `1px solid ${stl_def.schemes.light.outline}`,
+        },
+    });
+    button.DomElement.classList.add(button_css);
+    return button.DomElement;
+}

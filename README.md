@@ -1,7 +1,30 @@
-BIUST REVISION AI APP
+# BIUST REVISION AI APP
 
-To run this app;
+Welcome to my side project to keep me busy and stop from going insane - we are on a semester break.
 
-1. Clone it
-2. run `bun run install`
-3. then run `bun run dev`
+Anyway, I've always wanted to create my own custom AI app that fits into my workstyle when I'm studying. Therefore I'm building it using tools i have created to challenge myself too except standard tools like vite.
+
+> The motto is not to create a web app, but to create an installable using tools like Tauri and DroidScript for mobile.
+
+> Here is an upto-date snapshot of the website;
+
+![](./Screenshot%20From%202025-06-06%2016-12-06.png)
+
+---
+
+## Feature's I'm Hoping To Implement Soon:
+
+-   Community Mode, where students can ask for help and questions
+-   Document Archive, students can browse for past papers and upload them too.
+-   A scheduler + event tracker for personal help
+-   Classes page, a student creates a class and has a common page to get help with that subject in more detail, it will be a habour for their notes, and anything related to revision
+
+## Contributing
+
+-   The library being used is as close to vanilla js, all it is is a css in js function and an object that helps create elements similar to `document.createElement`, more info can be found at; [viewkit-ui](https://github.com/oarabilekoore/viewkit-ui/blob/main/INTRO.md)
+
+-   Contributing is open to anyone, no restrictions too.
+
+## License
+
+MIT Licensed project other universities can clone too.
