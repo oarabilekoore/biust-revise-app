@@ -73,9 +73,8 @@ export function ChatBox(root: HTMLElement) {
 
     const change_model_btn = MenuButton(button_row_left, "Change Model");
 
-    const search_btn = ToggleButton(button_row_left, {
+    const { button, togglestate } = ToggleButton(button_row_left, {
         label: "Search",
-        href: "",
         icon: "travel_explore",
     });
 
