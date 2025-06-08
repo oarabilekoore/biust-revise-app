@@ -1,6 +1,6 @@
 import { html, css } from "viewkit-ui";
 import { stl_def, gen_def } from "./+definition";
-import { LinkButton } from "./button";
+import { FilledButton, MenuButton, ToggleButton } from "./button";
 
 // TODO :
 // Create a t3Chat Like Styled Input Area
@@ -28,7 +28,11 @@ export function ChatBox(root: HTMLElement) {
     const input_style = css({
         fontFamily: `"Lexend", sans-serif`,
         fontWeight: 400,
+        resize: "none",
+        overflowY: "none",
+        boxSizing: "border-box",
         width: "-webkit-fill-available",
+        maxHeight: "180px",
         backgroundColor: "transparent",
         color: stl_def.schemes.light.onSurface,
         border: "none",
@@ -42,29 +46,48 @@ export function ChatBox(root: HTMLElement) {
 
     input.classList.add(input_style);
     input.placeholder = "Type your question here...";
+    input.oninput = function () {
+        console.log("input");
+        input.style.height = "auto";
+        input.style.height = input.scrollHeight + "px";
+    };
 
     const button_row = html.Div(input_area);
     button_row.classList.add(
         css({
             display: "flex",
-            flexDirection: "row",
-            width: "100%",
-            gap: `${gen_def.general.space[2]}`,
-            height: "inherit",
+            width: "-webkit-fill-available",
+            flexWrap: "no-wrap",
+            justifyContent: "space-between",
         })
     );
 
-    const change_model_btn = LinkButton(button_row, {
-        label: "Change Model",
-        href: "",
-    });
+    const button_row_left = html.Div(button_row);
+    button_row_left.classList.add(
+        css({
+            display: "flex",
+            gap: `${gen_def.general.space[3]}`,
+            padding: `${gen_def.general.space[3]}`,
+        })
+    );
 
-    const search_btn = LinkButton(button_row, {
+    const change_model_btn = MenuButton(button_row_left, "Change Model");
+
+    const search_btn = ToggleButton(button_row_left, {
         label: "Search",
         href: "",
+        icon: "travel_explore",
     });
 
-    const add_button = html.Button(button_row);
+    const button_row_right = html.Div(button_row);
+    button_row_right.classList.add(
+        css({
+            display: "flex",
+            gap: `${gen_def.general.space[3]}`,
+            padding: `${gen_def.general.space[3]}`,
+        })
+    );
+    const add_button = html.Button(button_row_right);
     const add_button_style = css({
         backgroundColor: "transparent",
         color: stl_def.schemes.light.onSurfaceVariant,
@@ -86,7 +109,7 @@ export function ChatBox(root: HTMLElement) {
     add_button.classList.add(add_button_style, "material-symbols-outlined");
     add_button.textContent = "add";
 
-    const send_button = html.Button(button_row);
+    const send_button = html.Button(button_row_right);
     const send_button_style = css({
         backgroundColor: stl_def.schemes["dark-medium-contrast"].secondary,
         color: stl_def.schemes["light-high-contrast"].secondary,

@@ -1,14 +1,15 @@
-import { html, css } from "viewkit-ui";
+import { html, css, signal } from "viewkit-ui";
 import { gen_def, stl_def } from "./+definition";
 
 type ButtonProps = {
     label: string;
     icon?: string;
+    iconposition?: "left" | "right";
     href?: string | undefined;
 };
 
-export function LinkButton(parent: HTMLElement, props: ButtonProps) {
-    const { label, icon, href } = props;
+export function FilledButton(parent: HTMLElement, props: ButtonProps) {
+    const { label, icon, href, iconposition } = props;
     const button = html.Anchor(parent, label);
 
     href ? button.setAttribute("href", href) : console.info("Href Attribute Of The Link Button Is Null");
@@ -41,11 +42,100 @@ export function LinkButton(parent: HTMLElement, props: ButtonProps) {
     button.classList.add(link_button);
 
     function add_icon_to_button() {
-        //@ts-ignore
         const iconElement = html.Span(button, icon);
         iconElement.classList.add("material-symbols-outlined");
-        button.prepend(iconElement);
+        if (iconposition === "right") {
+            button.append(iconElement);
+        } else button.prepend(iconElement);
     }
+
+    return button;
+}
+
+export function ToggleButton(parent: HTMLElement, props: ButtonProps) {
+    const { label, icon, href, iconposition } = props;
+    const button = html.Anchor(parent, label);
+    const togglestate = signal(false);
+
+    href ? button.setAttribute("href", href) : console.info("Href Attribute Of The Link Button Is Null");
+    if (icon) {
+        add_icon_to_button();
+    }
+
+    const link_button = css({
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        color: stl_def.schemes["light-high-contrast"].secondary,
+        gap: gen_def.general.space[1],
+        backgroundColor: "inherit",
+        fontFamily: `"Lexend", sans-serif`,
+        fontWeight: 400,
+        textAlign: "center",
+        cursor: "pointer",
+        padding: gen_def.general.space[2],
+        margin: "auto",
+        height: "auto",
+        boxShadow: "none",
+        boxSizing: "border-box",
+        textDecoration: "none",
+        "&:hover": {
+            opacity: 0.8,
+        },
+    });
+    button.classList.add(link_button);
+
+    function add_icon_to_button() {
+        const iconElement = html.Span(button, icon);
+        iconElement.classList.add("material-symbols-outlined");
+        if (iconposition === "right") {
+            button.append(iconElement);
+        } else button.prepend(iconElement);
+    }
+    const toggledclass = css({
+        color: "#1157ce",
+    });
+    button.onclick = function () {
+        if (togglestate.get() === true) {
+            togglestate.set(false);
+            button.classList.remove(toggledclass);
+        } else {
+            togglestate.set(true);
+            button.classList.add(toggledclass);
+        }
+    };
+    return button;
+}
+
+export function MenuButton(parent: HTMLElement, label: string) {
+    const button = html.Anchor(parent, label);
+
+    const link_button = css({
+        backgroundColor: "inherit",
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        color: stl_def.schemes["light-high-contrast"].secondary,
+        gap: gen_def.general.space[1],
+        fontFamily: `"Lexend", sans-serif`,
+        fontWeight: 400,
+        textAlign: "center",
+        cursor: "pointer",
+        padding: gen_def.general.space[2],
+        margin: "auto",
+        height: "auto",
+        boxShadow: "none",
+        boxSizing: "border-box",
+        textDecoration: "none",
+        "&:hover": {
+            backgroundColor: stl_def.schemes["dark-medium-contrast"].secondary,
+        },
+    });
+    button.classList.add(link_button);
+
+    const iconElement = html.Span(button, "arrow_drop_down");
+    iconElement.classList.add("material-symbols-outlined");
+    button.append(iconElement);
 
     return button;
 }

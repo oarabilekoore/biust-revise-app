@@ -1,6 +1,6 @@
 import { html, css } from "viewkit-ui";
 import { gen_def } from "../components/+definition";
-import { LinkButton } from "../components/button";
+import { FilledButton } from "../components/button";
 import { ChatBox } from "../components/chatbox";
 import { HeaderMemo } from "../components/header";
 
@@ -48,25 +48,25 @@ export default function Dashboard() {
         })
     );
 
-    LinkButton(button_row, {
+    FilledButton(button_row, {
         label: "Summarize School Notes",
         href: "",
         icon: "stylus_note",
     });
 
-    LinkButton(button_row, {
+    FilledButton(button_row, {
         label: "Create FlashCards",
         href: "",
         icon: "stacks",
     });
 
-    LinkButton(button_row, {
+    FilledButton(button_row, {
         label: "Revise a Test Paper",
         href: "",
         icon: "source_notes",
     });
 
-    LinkButton(button_row, {
+    FilledButton(button_row, {
         label: "Create Notes From A Recording",
         href: "",
         icon: "transcribe",
