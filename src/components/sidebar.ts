@@ -1,5 +1,4 @@
-import { LayoutConstructor, widget, css } from "viewkit-ui";
-import type { Parent } from "viewkit-ui";
+import { html, css } from "viewkit-ui";
 import { stl_def, gen_def } from "./+definition";
 import { router } from "../..";
 
@@ -38,7 +37,7 @@ const tooltip_style = css({
         right: "100%",
         top: "50%",
         transform: "translateY(-50%)",
-        border: "5px solid transparent",
+        border: "5px solid transHTMLElement",
         borderRightColor: stl_def.schemes["light-high-contrast"].onSurface,
     },
 });
@@ -81,37 +80,53 @@ const icon_element_style = css({
     },
 });
 
-function SideBarIcon(parent: Parent, icon: string, hint: string, onClick?: () => void) {
-    const item = new LayoutConstructor(parent, "linear", [side_bar_item_style]);
-    item.ElementAlignment = "CENTER";
-    item.LayoutDirection = "TOP_TO_BOTTOM";
+function SideBarIcon(parent: HTMLElement, icon: string, hint: string, onClick?: () => void) {
+    const item = html.Div(parent);
+    item.classList.add(
+        side_bar_item_style,
+        css({
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "flex-start",
+        })
+    );
 
-    const icon_view = widget.Span(item);
+    const icon_view = html.Span(item);
     icon_view.textContent = icon;
     icon_view.classList.add("material-symbols-outlined", icon_element_style);
 
     // Tooltip element
-    const tooltip_text = widget.Span(item);
+    const tooltip_text = html.Span(item);
     tooltip_text.textContent = hint;
     tooltip_text.classList.add(tooltip_style);
 
-    if (onClick && item.DomElement) {
-        item.DomElement.addEventListener("click", onClick);
+    if (onClick && item) {
+        item.addEventListener("click", onClick);
     }
 }
 
-export function SideBar(parent: Parent | null) {
-    const side_bar = new LayoutConstructor(parent, "linear", [side_bar_style]);
+export function SideBar(parent: HTMLElement | null) {
+    const side_bar = html.Div(parent);
+    side_bar.classList.add(
+        side_bar_style,
+        css({
+            display: "flex",
+            height: "100%",
+            flexDirection: "column",
+            alignContent: "center",
+        })
+    );
 
-    side_bar.LayoutDirection = "TOP_TO_BOTTOM";
-    side_bar.ElementAlignment = "VCENTER";
-    side_bar.ParentFill = "FILLY";
-    side_bar.DomElement.tabIndex = 0;
+    side_bar.tabIndex = 0;
 
     // --- Top Section ---
-    const topSection = new LayoutConstructor(side_bar, "linear");
-    topSection.LayoutDirection = "TOP_TO_BOTTOM";
-    topSection.ElementAlignment = "CENTER";
+    const topSection = html.Div(side_bar);
+    topSection.classList.add(
+        css({
+            display: "flex",
+            flexDirection: "column",
+        })
+    );
 
     // Main navigation
     SideBarIcon(topSection, "dashboard", "Dashboard", () => {
@@ -128,13 +143,18 @@ export function SideBar(parent: Parent | null) {
     });
 
     // --- Bottom Section ---
-    const bottomSection = new LayoutConstructor(side_bar, "linear");
-    bottomSection.LayoutDirection = "TOP_TO_BOTTOM";
-    bottomSection.ElementAlignment = "CENTER";
+    const bottomSection = html.Div(side_bar);
+    bottomSection.classList.add(
+        css({
+            display: "flex",
+            flexDirection: "flex-start",
+            justifyContent: "center",
+        })
+    );
 
-    const settingsSpacer = widget.Div(bottomSection);
+    const settingsSpacer = html.Div(bottomSection);
     settingsSpacer.style.flexGrow = "1";
 
     SideBarIcon(bottomSection, "settings", "Settings");
-    return side_bar.DomElement;
+    return side_bar;
 }

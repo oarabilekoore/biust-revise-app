@@ -1,11 +1,16 @@
-import { widget } from "viewkit-ui";
-import type { Parent } from "viewkit-ui";
+import { html, css } from "viewkit-ui";
 
-export default function ClassesPage(parent: Parent) {
-    const classes_page = widget.LinearLayout();
-    classes_page.ParentFill = "INHERIT";
-    classes_page.ElementAlignment = "CENTER";
+export default function ClassesPage() {
+    const classes_page = html.Div();
+    classes_page.classList.add(
+        css({
+            width: "inherit",
+            height: "inherit",
+            display: "flex",
+            justifyContent: "center",
+        })
+    );
 
-    widget.Heading1(classes_page, "Classes Page");
-    return classes_page.DomElement;
+    html.Heading1(classes_page, "Classes Page");
+    return classes_page;
 }

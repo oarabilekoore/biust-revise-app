@@ -1,20 +1,25 @@
-import { widget, css } from "viewkit-ui";
-import type { Parent } from "viewkit-ui";
+import { html, css } from "viewkit-ui";
 import { HeaderMemo } from "../components/header";
-import { LinkButton, SubjectLinkButton } from "../components/button";
+import { SubjectLinkButton } from "../components/button";
 
-export default function LibraryPage(parent: Parent) {
-    const library_page = widget.LinearLayout();
-    library_page.ParentFill = "INHERIT";
-    library_page.ElementAlignment = "VCENTER";
-    library_page.LayoutDirection = "TOP_TO_BOTTOM";
+export default function LibraryPage(): HTMLElement {
+    const library_page = html.Div();
+    library_page.classList.add(
+        css({
+            width: "inherit",
+            height: "inherit",
+            display: "flex",
+            flexDirection: "column",
+            alignContent: "center",
+        })
+    );
 
     HeaderMemo(library_page, {
         title: "BIUSTREVISE Document Library.",
         icon: "📄",
     });
 
-    const courses_grid = widget.GridLayout(library_page);
+    const courses_grid = html.Div(library_page);
     const grid_style = css({
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
@@ -35,7 +40,7 @@ export default function LibraryPage(parent: Parent) {
             padding: "0.75rem",
         },
     });
-    courses_grid.DomElement.classList.add(grid_style);
+    courses_grid.classList.add(grid_style);
 
     SubjectLinkButton(courses_grid, {
         label: "Phsyics101",
@@ -107,7 +112,32 @@ export default function LibraryPage(parent: Parent) {
         label: "MATH202",
         icon: "calculator-simple",
         href: "",
-    });
+    }).onclick = () => {
+        SubjectContentView(library_page, "math202");
+    };
 
-    return library_page.DomElement;
+    return library_page;
+}
+
+function SubjectContentView(root: HTMLElement, subject: string) {
+    const subject_view = html.Dialog(root);
+    subject_view.closedBy = "any";
+
+    const subject_view_style = css(
+        {
+            border: "none !important",
+            borderColor: "none !important",
+            boxShadow: "0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+            backgroundColor: "#f0f0f0",
+            width: "calc(100% - 30%)",
+            height: "auto",
+        },
+        "dialog"
+    );
+    subject_view.classList.add("dialog");
+    subject_view.className = "animate__animated animate__bounceIn";
+
+    html.Heading2(subject_view, subject);
+    subject_view.showModal();
+    return library_page;
 }

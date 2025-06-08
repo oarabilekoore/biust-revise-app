@@ -1,5 +1,4 @@
-import type { Parent } from "viewkit-ui";
-import { widget, css } from "viewkit-ui";
+import { html, css } from "viewkit-ui";
 import { gen_def, stl_def } from "./+definition";
 
 type ButtonProps = {
@@ -8,9 +7,9 @@ type ButtonProps = {
     href?: string | undefined;
 };
 
-export function LinkButton(parent: Parent, props: ButtonProps) {
+export function LinkButton(parent: HTMLElement, props: ButtonProps) {
     const { label, icon, href } = props;
-    const button = widget.Anchor(parent, label);
+    const button = html.Anchor(parent, label);
 
     href ? button.setAttribute("href", href) : console.info("Href Attribute Of The Link Button Is Null");
     if (icon) {
@@ -43,7 +42,7 @@ export function LinkButton(parent: Parent, props: ButtonProps) {
 
     function add_icon_to_button() {
         //@ts-ignore
-        const iconElement = widget.Span(button, icon);
+        const iconElement = html.Span(button, icon);
         iconElement.classList.add("material-symbols-outlined");
         button.prepend(iconElement);
     }
@@ -57,16 +56,21 @@ type SubjectLinkProps = {
     href: string;
 };
 
-export function SubjectLinkButton(root: Parent, props: SubjectLinkProps) {
+export function SubjectLinkButton(root: HTMLElement, props: SubjectLinkProps) {
     const { label, icon, href } = props;
-    const button = widget.LinearLayout(root);
-    button.ElementAlignment = "VCENTER";
-    button.LayoutDirection = "LEFT_TO_RIGHT";
+    const button = html.Div(root);
+    button.classList.add(
+        css({
+            display: "flex",
+            alignContent: "center",
+            flexDirection: "flex-left",
+        })
+    );
 
-    const icon_ = widget.Span(button);
+    const icon_ = html.Span(button);
     icon_.classList.add("fi", `fi-rr-${icon}`);
 
-    const label_ = widget.Anchor(button);
+    const label_ = html.Anchor(button);
     label_.textContent = label.toUpperCase();
 
     const button_css = css({
@@ -85,6 +89,6 @@ export function SubjectLinkButton(root: Parent, props: SubjectLinkProps) {
             border: `1px solid ${stl_def.schemes.light.outline}`,
         },
     });
-    button.DomElement.classList.add(button_css);
-    return button.DomElement;
+    button.classList.add(button_css);
+    return button;
 }
