@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-    base: "/buist-revise-app/",
+    base: "/biust-revise-app/",
     build: {
         outDir: "dist",
         sourcemap: true,
