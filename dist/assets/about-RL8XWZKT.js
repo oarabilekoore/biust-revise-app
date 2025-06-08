@@ -1,1 +1,0 @@
-import{h as e,c as a}from"./index-Cw-YO-gd.js";function r(){const t=e.Div();return t.classList.add(a({display:"flex",width:"inherit",height:"inherit",justifyContent:"center"})),e.Paragraph("You Are On The About Page",t),t}export{r as default};
