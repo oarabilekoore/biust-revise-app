@@ -1,7 +1,7 @@
 import { css, html } from "viewkit-ui";
 
 export default function CalendarPage() {
-    const calendar_page = html.Div();
+    const calendar_page = html.div();
     calendar_page.classList.add(
         css({
             width: "inherit",
@@ -11,6 +11,6 @@ export default function CalendarPage() {
         })
     );
 
-    html.Heading1(calendar_page, "Calendar Page");
+    html.h1(calendar_page, "Calendar Page");
     return calendar_page;
 }

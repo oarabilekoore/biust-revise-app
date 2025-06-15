@@ -6,7 +6,7 @@ import { FilledButton, MenuButton, ToggleButton } from "./button";
 // Create a t3Chat Like Styled Input Area
 
 export function ChatBox(root: HTMLElement) {
-    const input_area = html.Div(root);
+    const input_area = html.div(root);
     input_area.classList.add(
         css({
             display: "flex",
@@ -24,7 +24,7 @@ export function ChatBox(root: HTMLElement) {
         })
     );
 
-    const input = html.TextArea(input_area);
+    const input = html.textarea(input_area);
     const input_style = css({
         fontFamily: `"Lexend", sans-serif`,
         fontWeight: 400,
@@ -52,7 +52,7 @@ export function ChatBox(root: HTMLElement) {
         input.style.height = input.scrollHeight + "px";
     };
 
-    const button_row = html.Div(input_area);
+    const button_row = html.div(input_area);
     button_row.classList.add(
         css({
             display: "flex",
@@ -62,7 +62,7 @@ export function ChatBox(root: HTMLElement) {
         })
     );
 
-    const button_row_left = html.Div(button_row);
+    const button_row_left = html.div(button_row);
     button_row_left.classList.add(
         css({
             display: "flex",
@@ -78,7 +78,7 @@ export function ChatBox(root: HTMLElement) {
         icon: "travel_explore",
     });
 
-    const button_row_right = html.Div(button_row);
+    const button_row_right = html.div(button_row);
     button_row_right.classList.add(
         css({
             display: "flex",
@@ -86,7 +86,7 @@ export function ChatBox(root: HTMLElement) {
             padding: `${gen_def.general.space[3]}`,
         })
     );
-    const add_button = html.Button(button_row_right);
+    const add_button = html.button(button_row_right);
     const add_button_style = css({
         backgroundColor: "transparent",
         color: stl_def.schemes.light.onSurfaceVariant,
@@ -108,7 +108,7 @@ export function ChatBox(root: HTMLElement) {
     add_button.classList.add(add_button_style, "material-symbols-outlined");
     add_button.textContent = "add";
 
-    const send_button = html.Button(button_row_right);
+    const send_button = html.button(button_row_right);
     const send_button_style = css({
         backgroundColor: stl_def.schemes["dark-medium-contrast"].secondary,
         color: stl_def.schemes["light-high-contrast"].secondary,

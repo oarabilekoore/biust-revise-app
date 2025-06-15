@@ -3,7 +3,7 @@ import { HeaderMemo } from "../components/header";
 import { SubjectLinkButton } from "../components/button";
 
 export default function LibraryPage(): HTMLElement {
-    const library_page = html.Div();
+    const library_page = html.div();
     library_page.classList.add(
         css({
             width: "inherit",
@@ -19,7 +19,7 @@ export default function LibraryPage(): HTMLElement {
         icon: "📄",
     });
 
-    const courses_grid = html.Div(library_page);
+    const courses_grid = html.div(library_page);
     const grid_style = css({
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
@@ -120,7 +120,7 @@ export default function LibraryPage(): HTMLElement {
 }
 
 function SubjectContentView(root: HTMLElement, subject: string) {
-    const subject_view = html.Dialog(root);
+    const subject_view = html.dialog(root);
     subject_view.closedBy = "any";
 
     const subject_view_style = css(
@@ -137,7 +137,7 @@ function SubjectContentView(root: HTMLElement, subject: string) {
     subject_view.classList.add("dialog");
     subject_view.className = "animate__animated animate__bounceIn";
 
-    html.Heading2(subject_view, subject);
+    html.h2(subject_view, subject);
     subject_view.showModal();
     return library_page;
 }

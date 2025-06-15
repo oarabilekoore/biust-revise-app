@@ -14,7 +14,7 @@
         "typescript": "^5"
     },
     "dependencies": {
-        "viewkit-ui": "^0.4.1",
+        "viewkit-ui": "01.0.0",
         "vite": "^6.3.5"
     }
 }

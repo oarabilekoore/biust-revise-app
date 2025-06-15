@@ -4,7 +4,7 @@ import { SideBar } from "./src/components/sidebar.ts";
 
 const root = document.querySelector("body") as HTMLElement;
 
-const page = html.Div(root);
+const page = html.div(root);
 page.classList.add(
     css({
         display: "flex",
@@ -14,17 +14,28 @@ page.classList.add(
         overflowX: "hidden !important",
         overflowY: "hidden !important",
         scrollBehavior: "none !important",
+
+        "@(max-width: 1250px)": {
+            flexDirection: "column-reverse",
+            paddingBottom: "0",
+            // height: "100vh",
+        },
     })
 );
 
 SideBar(page);
-
-const page_handler = html.Div(page);
+const page_handler = html.div(page);
 page_handler.classList.add(
     css({
         display: "flex",
         flexGrow: 1,
         flexDirection: "column",
+        "@(max-width: 1250px)": {
+            width: "100%",
+            flexGrow: 1,
+            overflowX: "hidden !important",
+            scrollBehavior: "none !important",
+        },
     })
 );
 

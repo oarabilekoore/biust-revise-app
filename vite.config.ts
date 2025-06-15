@@ -1,12 +1,12 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-    base: "/biust-revise-app/",
+    base: "/", // Or an empty string ''
     build: {
         outDir: "dist",
         sourcemap: true,
     },
     server: {
-        port: 3000,
+        port: 5173,
     },
 });

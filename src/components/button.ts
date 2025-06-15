@@ -28,7 +28,7 @@ type ButtonProps = {
 
 export function FilledButton(parent: HTMLElement, props: ButtonProps) {
     const { label, icon, href, iconposition } = props;
-    const button = html.Anchor(parent, label);
+    const button = html.a(parent, label);
 
     href ? button.setAttribute("href", href) : console.info("Href Attribute Of The Link Button Is Null");
     if (icon) {
@@ -45,7 +45,7 @@ export function FilledButton(parent: HTMLElement, props: ButtonProps) {
     button.classList.add(general_button_styles, filled_button_styles);
 
     function add_icon_to_button() {
-        const iconElement = html.Span(button, icon);
+        const iconElement = html.span(button, icon);
         iconElement.classList.add("material-symbols-outlined");
         if (iconposition === "right") {
             button.append(iconElement);
@@ -64,7 +64,7 @@ type ToggleButtonProps = {
 
 export function ToggleButton(parent: HTMLElement, props: ToggleButtonProps) {
     const { label, icon, iconposition, ontoggle } = props;
-    const button = html.Anchor(parent, label);
+    const button = html.a(parent, label);
     const togglestate = signal(false);
 
     if (icon) add_icon_to_button();
@@ -80,7 +80,7 @@ export function ToggleButton(parent: HTMLElement, props: ToggleButtonProps) {
     button.classList.add(general_button_styles, toggle_button_styles);
 
     function add_icon_to_button() {
-        const iconElement = html.Span(button, icon);
+        const iconElement = html.span(button, icon);
         iconElement.classList.add("material-symbols-outlined");
 
         if (iconposition === "right") button.append(iconElement);
@@ -105,7 +105,7 @@ export function ToggleButton(parent: HTMLElement, props: ToggleButtonProps) {
 }
 
 export function MenuButton(parent: HTMLElement, label: string) {
-    const button = html.Anchor(parent, label);
+    const button = html.a(parent, label);
 
     const menu_button_styles = css({
         backgroundColor: "inherit",
@@ -116,7 +116,7 @@ export function MenuButton(parent: HTMLElement, label: string) {
     });
     button.classList.add(general_button_styles, menu_button_styles);
 
-    const iconElement = html.Span(button, "arrow_drop_down");
+    const iconElement = html.span(button, "arrow_drop_down");
     iconElement.classList.add("material-symbols-outlined");
     button.append(iconElement);
 
@@ -131,7 +131,7 @@ type SubjectLinkProps = {
 
 export function SubjectLinkButton(root: HTMLElement, props: SubjectLinkProps) {
     const { label, icon, href } = props;
-    const button = html.Div(root);
+    const button = html.div(root);
 
     const subject_link_button_container_styles = css({
         display: "flex",
@@ -140,12 +140,12 @@ export function SubjectLinkButton(root: HTMLElement, props: SubjectLinkProps) {
     });
     button.classList.add(subject_link_button_container_styles);
 
-    const icon_ = html.Span(button);
+    const icon_ = html.span(button);
     icon_.classList.add("fi", `fi-rr-${icon}`);
 
-    const label_ = html.Anchor(button);
+    const label_ = html.a(button);
     label_.textContent = label.toUpperCase();
-    label_.setAttribute("href", href); // Add href to the anchor tag
+    label_.setAttribute("href", href); // Add href to the a tag
 
     const subject_link_button_styles = css({
         backdropFilter: "blur(8px)",

@@ -5,7 +5,7 @@ import { ChatBox } from "../components/chatbox";
 import { HeaderMemo } from "../components/header";
 
 export default function Dashboard() {
-    const dashboard_page = html.Div();
+    const dashboard_page = html.div();
     dashboard_page.classList.add(
         css({
             display: "flex",
@@ -25,7 +25,7 @@ export default function Dashboard() {
         icon: "⚝",
     });
 
-    const bottom_area = html.Div(dashboard_page);
+    const bottom_area = html.div(dashboard_page);
     bottom_area.classList.add(
         css({
             width: "100%",
@@ -39,7 +39,7 @@ export default function Dashboard() {
 
     ChatBox(bottom_area);
 
-    const button_row = html.Div(bottom_area);
+    const button_row = html.div(bottom_area);
     button_row.classList.add(
         css({
             display: "flex",
