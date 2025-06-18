@@ -2,7 +2,7 @@
 
 Welcome to my side project to keep me busy and stop from going insane - we are on a semester break.
 
-Anyway, I've always wanted to create my own custom AI app that fits into my workstyle when I'm studying. Therefore I'm building it using tools i have created to challenge myself too except standard tools like vite.
+Anyway, I've always wanted to create my own custom AI app that fits into my workstyle when I'm studying. Therefore I'm building it in Dart for the backend and for the frontend in React.
 
 > The motto is not to create a web app, but to create an installable using tools like Tauri and DroidScript for mobile.
 
