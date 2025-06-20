@@ -33,6 +33,5 @@ void main() async {
       Cascade().add(router.call).add(staticFilesHandler.call).handler);
 
   final server = await shelf_io.serve(handler, ip, port);
-  print("Server Running At : http://${server.address.host}:${server.port}");
   print("Serving static files from: $frontendDistPath");
 }
